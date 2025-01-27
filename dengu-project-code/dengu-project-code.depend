@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1737993617 source:e:\00 graphics\project code\main project\dengu-project-code\main.cpp
+1737994603 source:e:\00 graphics\project code\main project\dengu-project-code\main.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<cmath>
