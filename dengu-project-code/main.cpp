@@ -14,7 +14,10 @@ struct Mosquito
     float x, y;
     bool isWingUp, isAlive;
 };
-struct Egg { float x, y; };
+struct Egg
+{
+    float x, y;
+};
 struct Spray
 {
     float x, y;
@@ -63,9 +66,11 @@ void drawMosquito()
 }
 
 // Draw eggs
-void drawEggs() {
+void drawEggs()
+{
     glColor3f(0.8f, 0.6f, 0.4f);
-    for (const auto& egg : eggs) {
+    for (const auto& egg : eggs)
+    {
         glPushMatrix();
         glTranslatef(egg.x, egg.y, 0);
         glutSolidSphere(0.02, 10, 10);
@@ -74,7 +79,8 @@ void drawEggs() {
 }
 
 // Draw water container
-void drawWaterContainer() {
+void drawWaterContainer()
+{
     glColor3f(0.6f, 0.4f, 0.2f);
     glPushMatrix();
     glTranslatef(0.6f, -0.6f, 0);
@@ -82,7 +88,8 @@ void drawWaterContainer() {
     glutSolidCube(1.0f);
     glPopMatrix();
 
-    if (isContainerFull) {
+    if (isContainerFull)
+    {
         glColor3f(0.0f, 0.0f, 1.0f);
         glPushMatrix();
         glTranslatef(0.6f, -0.58f, 0);
@@ -90,13 +97,16 @@ void drawWaterContainer() {
         glutSolidCube(1.0f);
         glPopMatrix();
         drawText(0.01f, -0.8f, "Container is full with water.Mosquito can lay eggs.");
-    } else {
+    }
+    else
+    {
         drawText(0.09f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
     }
 }
 
 // Draw spray
-void drawSpray() {
+void drawSpray()
+{
     glColor3f(0.0f, 0.0f, 0.0f);
     glPushMatrix();
     glTranslatef(spray.x, spray.y, 0);
@@ -104,7 +114,8 @@ void drawSpray() {
     glutSolidCone(0.05, 0.1, 10, 10);
     glPopMatrix();
 
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; ++i)
+    {
         float angle = (rand() % 360) * 3.14159f / 180.0f;
         glColor3f(0.2f, 0.2f, 0.2f);
         glPushMatrix();
@@ -120,6 +131,7 @@ void drawScene1()
     drawText(-0.9f, 0.9f, "Welcome to Dengue Awareness!");
     drawText(-0.9f, 0.8f, "Press '1' to continue.");
     drawMosquito();
+
 }
 
 // Scene 2: Water container
@@ -154,9 +166,43 @@ void display()
     glutSwapBuffers();
 }
 
+
+
+
+// Timer function to animate mosquito movement
+void animateMosquito(int value)
+{
+    if (currentScene == 1 && mosquito.isAlive)
+    {
+        // Move the mosquito autonomously
+        mosquito.x += (rand() % 3 - 1) * 0.05f; // Random movement (left, right, or stay)
+        mosquito.y += (rand() % 3 - 1) * 0.05f; // Random movement (up, down, or stay)
+
+        // Wrap mosquito around to the opposite side if it goes out of bounds
+        if (mosquito.x > 1.0f) mosquito.x = -1.0f;
+        if (mosquito.x < -1.0f) mosquito.x = 1.0f;
+        if (mosquito.y > 1.0f) mosquito.y = -1.0f;
+        if (mosquito.y < -1.0f) mosquito.y = 1.0f;
+    }
+
+    glutPostRedisplay(); // Redraw the scene after movement
+    glutTimerFunc(100, animateMosquito, 0); // Call the function every 100 ms
+}
+
+
+
+
+
+
 // Handle mosquito movement and egg-laying
 void handleSpecialInput(int key, int x, int y)
 {
+
+
+
+
+
+
     if (currentScene == 2) // Only allow mosquito movement in Scene 2
     {
         // Move mosquito based on arrow keys
@@ -171,8 +217,8 @@ void handleSpecialInput(int key, int x, int y)
 
         // Check if mosquito is near the container to lay eggs
         if (isContainerFull &&
-            mosquito.x > 0.6f - 0.2f && mosquito.x < 0.6f + 0.2f &&  // Increased range
-            mosquito.y > -0.6f - 0.2f && mosquito.y < -0.6f + 0.2f )
+                mosquito.x > 0.6f - 0.2f && mosquito.x < 0.6f + 0.2f &&  // Increased range
+                mosquito.y > -0.6f - 0.2f && mosquito.y < -0.6f + 0.2f )
         {
             eggs.push_back({0.6f + (float)(rand() % 10 - 5) / 50.0f, -0.58f});
 
@@ -240,6 +286,7 @@ int main(int argc, char** argv)
     glutKeyboardFunc(handleKeyboard);
     glutSpecialFunc(handleSpecialInput);
     glutTimerFunc(100, animateWings, 0);
+    glutTimerFunc(100, animateMosquito, 0);
 
     glutMainLoop();
     return 0;
