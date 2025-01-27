@@ -89,9 +89,9 @@ void drawWaterContainer() {
         glScalef(0.32f, 0.25f, 1.0f); // Adjust the water size to match the new container size
         glutSolidCube(1.0f);
         glPopMatrix();
-        drawText(0.3f, -0.8f, "Container is full with water. Mosquito can lay eggs.");
+        drawText(0.01f, -0.8f, "Container is full with water.Mosquito can lay eggs.");
     } else {
-        drawText(0.3f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
+        drawText(0.09f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
     }
 }
 
