@@ -199,6 +199,24 @@ void handleSpecialInput(int key, int x, int y)
 {
 
 
+    if (currentScene == 3) // Only allow mosquito movement in Scene 1
+    {
+        // Move mosquito based on arrow keys
+        if (key == GLUT_KEY_UP) mosquito.y += 0.05f;
+        if (key == GLUT_KEY_DOWN) mosquito.y -= 0.05f;
+        if (key == GLUT_KEY_LEFT) mosquito.x -= 0.05f;
+        if (key == GLUT_KEY_RIGHT) mosquito.x += 0.05f;
+
+        // Infinite movement behavior
+        // Wrap mosquito around to the opposite side if it goes out of bounds
+        if (mosquito.x > 1.0f) mosquito.x = -1.0f; // Wrap to the left side
+        if (mosquito.x < -1.0f) mosquito.x = 1.0f; // Wrap to the right side
+        if (mosquito.y > 1.0f) mosquito.y = -1.0f; // Wrap to the bottom
+        if (mosquito.y < -1.0f) mosquito.y = 1.0f; // Wrap to the top
+
+        glutPostRedisplay(); // Redraw the scene after movement
+    }
+
 
 
 
