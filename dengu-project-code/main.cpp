@@ -128,6 +128,7 @@ void drawSpray()
 // Scene 1: Initial scene
 void drawScene1()
 {
+    mosquito.isAlive = true;
     drawText(-0.9f, 0.9f, "Welcome to Dengue Awareness!");
     drawText(-0.9f, 0.8f, "Press '1' to continue.");
     drawMosquito();
