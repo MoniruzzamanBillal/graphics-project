@@ -100,7 +100,7 @@ void drawWaterContainer()
     }
     else
     {
-        drawText(-0.01f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
+        drawText(0.01f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
     }
 }
 
@@ -216,7 +216,7 @@ void drawScene1()
 void drawScene2()
 {
     drawText(-0.9f, 0.9f, "Scene 2: Water Container");
-    drawText(-0.9f, 0.8f, "Press '2' to continue.");
+    drawText(-0.9f, 0.8f, "Press '3' to continue.");
     drawText(-0.9f, 0.7f, "-Press 'f' to fill, 'e' to empty the container.");
     drawText(-0.9f, 0.6f, "-Drag Mosquito into container and see result");
     drawText(-0.9f, 0.5f, "-Standing water = Mosquitoes' home!  ");
@@ -234,6 +234,12 @@ void drawScene3()
 {
     drawText(-0.9f, 0.9f, "Scene 3: Spray and Mosquito");
     drawText(-0.9f, 0.8f, "Use WASD to move spray and kill the mosquito.");
+    drawText(-0.9f, 0.7f, "-Mosquitoes bite in the evening—stay safe! ");
+    drawText(-0.9f, 0.6f, "-Use mosquito spray regularly, especially during dusk and dawn.");
+    drawText(-0.9f, 0.5f, "-Spraying repellent in dark corners prevents mosquito hiding spots.");
+    drawText(-0.9f, 0.4f, "-Apply spray near windows and doors to keep mosquitoes out.");
+    drawText(-0.9f, 0.3f, "-Safe insect sprays can protect children and elderly individuals.");
+
     drawSpray();
     drawMosquito();
 }
