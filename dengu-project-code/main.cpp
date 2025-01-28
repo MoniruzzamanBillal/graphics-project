@@ -125,12 +125,88 @@ void drawSpray()
     }
 }
 
+
+
+
+
+// Draw a detailed house
+void drawHouse(float x, float y) {
+    // Main house body
+    glColor3f(1.0f, 0.6f, 0.2f); // Light orange
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+    glScalef(0.4f, 0.3f, 1.0f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Roof
+    glColor3f(0.8f, 0.1f, 0.1f); // Red
+    glBegin(GL_TRIANGLES);
+    glVertex2f(x - 0.2f, y + 0.15f);
+    glVertex2f(x + 0.2f, y + 0.15f);
+    glVertex2f(x, y + 0.35f);
+    glEnd();
+
+    // Door
+    glColor3f(0.4f, 0.2f, 0.0f); // Brown
+    glPushMatrix();
+    glTranslatef(x, y - 0.1f, 0);
+    glScalef(0.1f, 0.2f, 1.0f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Left Window
+    glColor3f(0.5f, 0.8f, 1.0f); // Light blue
+    glPushMatrix();
+    glTranslatef(x - 0.1f, y + 0.05f, 0);
+    glScalef(0.08f, 0.08f, 1.0f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Right Window
+    glPushMatrix();
+    glTranslatef(x + 0.1f, y + 0.05f, 0);
+    glScalef(0.08f, 0.08f, 1.0f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Chimney
+    glColor3f(0.5f, 0.3f, 0.2f); // Dark brown
+    glPushMatrix();
+    glTranslatef(x + 0.1f, y + 0.3f, 0);
+    glScalef(0.05f, 0.2f, 1.0f);
+    glutSolidCube(1.0f);
+    glPopMatrix();
+
+    // Add some grass (front yard)
+    glColor3f(0.0f, 0.5f, 0.0f); // Green
+    float grassOffsetY = -0.3f;
+    glBegin(GL_QUADS);
+    glVertex2f(x - 0.25f, y - 0.15f);
+    glVertex2f(x + 0.25f, y - 0.15f);
+    glVertex2f(x + 0.25f, y - 0.3f);
+    glVertex2f(x - 0.25f, y - 0.3f);
+    glEnd();
+}
+
+
+
+
+
 // Scene 1: Initial scene
 void drawScene1()
 {
     mosquito.isAlive = true;
     drawText(-0.9f, 0.9f, "Welcome to Dengue Awareness!");
     drawText(-0.9f, 0.8f, "Press '1' to continue.");
+    drawText(-0.9f, 0.7f, "-Dengue can cause high fever, severe pain, and even death!");
+    drawText(-0.9f, 0.6f, "-Stay alert! Protect yourself from mosquito bites.");
+    drawText(-0.9f, 0.5f, "-A single mosquito bite can spread the virus—take precautions!");
+    drawText(-0.9f, 0.4f, "-prevention is key.");
+
+
+      // House
+    drawHouse(-0.7f, -0.5f);
     drawMosquito();
 
 }
