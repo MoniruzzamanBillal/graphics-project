@@ -108,7 +108,7 @@ void drawWaterContainer()
 void drawSpray()
 {
 
-
+  glColor3f(0.5f, 0.5f, 0.5f);
     drawText(spray.x - 0.06f, spray.y - 0.01f, "Spray");
 
 
@@ -218,6 +218,7 @@ void drawScene1()
 void drawScene2()
 {
 
+ mosquito.isAlive = true;
 
        glColor3f(0.0f, 0.0f, 0.0f);
 
