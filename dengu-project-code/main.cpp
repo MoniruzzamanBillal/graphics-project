@@ -96,11 +96,11 @@ void drawWaterContainer()
         glScalef(0.32f, 0.25f, 1.0f); // Adjust the water size to match the new container size
         glutSolidCube(1.0f);
         glPopMatrix();
-        drawText(0.01f, -0.8f, "Container is full with water.Mosquito can lay eggs.");
+        drawText(-0.05f, -0.8f, "Container is full with water.Mosquito can lay eggs.");
     }
     else
     {
-        drawText(0.09f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
+        drawText(-0.01f, -0.8f, "Container is empty! Mosquito can't lay eggs.");
     }
 }
 
@@ -130,7 +130,8 @@ void drawSpray()
 
 
 // Draw a detailed house
-void drawHouse(float x, float y) {
+void drawHouse(float x, float y)
+{
     // Main house body
     glColor3f(1.0f, 0.6f, 0.2f); // Light orange
     glPushMatrix();
@@ -198,14 +199,14 @@ void drawScene1()
 {
     mosquito.isAlive = true;
     drawText(-0.9f, 0.9f, "Welcome to Dengue Awareness!");
-    drawText(-0.9f, 0.8f, "Press '1' to continue.");
+    drawText(-0.9f, 0.8f, "Press '2' to continue.");
     drawText(-0.9f, 0.7f, "-Dengue can cause high fever, severe pain, and even death!");
     drawText(-0.9f, 0.6f, "-Stay alert! Protect yourself from mosquito bites.");
     drawText(-0.9f, 0.5f, "-A single mosquito bite can spread the virus—take precautions!");
     drawText(-0.9f, 0.4f, "-prevention is key.");
 
 
-      // House
+    // House
     drawHouse(-0.7f, -0.5f);
     drawMosquito();
 
@@ -215,8 +216,14 @@ void drawScene1()
 void drawScene2()
 {
     drawText(-0.9f, 0.9f, "Scene 2: Water Container");
-    drawText(-0.9f, 0.8f, "Press 'f' to fill, 'e' to empty the container.");
-    drawText(-0.9f, 0.7f, "Move mosquito into container to lay eggs.");
+    drawText(-0.9f, 0.8f, "Press '2' to continue.");
+    drawText(-0.9f, 0.7f, "-Press 'f' to fill, 'e' to empty the container.");
+    drawText(-0.9f, 0.6f, "-Drag Mosquito into container and see result");
+    drawText(-0.9f, 0.5f, "-Standing water = Mosquitoes' home!  ");
+    drawText(-0.9f, 0.4f, "-Clean water containers, cover buckets, and remove stagnant water.  ");
+    drawText(-0.9f, 0.3f, "-Mosquitoes lay eggs in just a few drops of water—stay vigilant.  ");
+    drawText(-0.9f, 0.2f, "-Keep your surroundings dry and clean to reduce breeding grounds.  ");
+    drawText(-0.9f, 0.1f, "-Even small plant saucers can collect water—empty them regularly.");
     drawWaterContainer();
     drawMosquito();
     drawEggs();
