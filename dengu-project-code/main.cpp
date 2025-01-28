@@ -107,12 +107,10 @@ void drawWaterContainer()
 // Draw spray
 void drawSpray()
 {
-    glColor3f(0.0f, 0.0f, 0.0f);
-    glPushMatrix();
-    glTranslatef(spray.x, spray.y, 0);
-    glScalef(0.05f, 0.15f, 1.0f);
-    glutSolidCone(0.05, 0.1, 10, 10);
-    glPopMatrix();
+
+
+    drawText(spray.x - 0.06f, spray.y - 0.01f, "Spray");
+
 
     for (int i = 0; i < 10; ++i)
     {
