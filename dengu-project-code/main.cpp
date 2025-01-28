@@ -196,6 +196,10 @@ void drawHouse(float x, float y)
 void drawScene1()
 {
     mosquito.isAlive = true;
+
+       glColor3f(0.0f, 0.0f, 0.0f);
+
+
     drawText(-0.9f, 0.9f, "Welcome to Dengue Awareness!");
     drawText(-0.9f, 0.8f, "Press '2' to continue.");
     drawText(-0.9f, 0.7f, "-Dengue can cause high fever, severe pain, and even death!");
@@ -213,6 +217,11 @@ void drawScene1()
 // Scene 2: Water container
 void drawScene2()
 {
+
+
+       glColor3f(0.0f, 0.0f, 0.0f);
+
+
     drawText(-0.9f, 0.9f, "Scene 2: Water Container");
     drawText(-0.9f, 0.8f, "Press '3' to continue.");
     drawText(-0.9f, 0.7f, "-Press 'f' to fill, 'e' to empty the container.");
@@ -230,6 +239,11 @@ void drawScene2()
 // Scene 3: Spray and mosquito
 void drawScene3()
 {
+
+
+       glColor3f(0.0f, 0.0f, 0.0f);
+
+
     drawText(-0.9f, 0.9f, "Scene 3: Spray and Mosquito");
     drawText(-0.9f, 0.8f, "Use WASD to move spray and kill the mosquito.");
     drawText(-0.9f, 0.7f, "-Mosquitoes bite in the evening—stay safe! ");
